@@ -1,10 +1,10 @@
-package com.github.lorellw.codewars;
+package com.github.lorellw.codewars.math;
 
 
 
+import com.github.lorellw.codewars.math.BitCounting;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import org.junit.runners.JUnit4;
 
 public class BitCountingTest {
     @Test
