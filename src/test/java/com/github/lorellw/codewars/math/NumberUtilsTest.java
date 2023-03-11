@@ -1,10 +1,12 @@
-package com.github.lorellw.codewars;
+package com.github.lorellw.codewars.math;
 
-import static com.github.lorellw.codewars.NumberUtils.sumIntervals;
+import static com.github.lorellw.codewars.math.NumberUtils.sumIntervals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import com.github.lorellw.codewars.math.NextBiggerNumberSol;
+import com.github.lorellw.codewars.math.NumberUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -78,11 +80,15 @@ public class NumberUtilsTest {
 
     @Test
     void nextBiggerNumber() {
-        assertEquals(21, NumberUtils.nextBiggerNumber(12));
-        assertEquals(531,NumberUtils.nextBiggerNumber(513));
-        assertEquals(2071,NumberUtils.nextBiggerNumber(2017));
-        assertEquals(441,NumberUtils.nextBiggerNumber(414));
-        assertEquals(414,NumberUtils.nextBiggerNumber(144));
-        assertEquals(19009, NumberUtils.nextBiggerNumber(10990));
+        assertEquals(-1, NextBiggerNumberSol.nextBiggerNumber(4));
+        assertEquals(-1,NextBiggerNumberSol.nextBiggerNumber(100000000));
+        assertEquals(-1,NextBiggerNumberSol.nextBiggerNumber(543210000));
+        assertEquals(-1,NextBiggerNumberSol.nextBiggerNumber(999999));
+        assertEquals(21, NextBiggerNumberSol.nextBiggerNumber(12));
+        assertEquals(531,NextBiggerNumberSol.nextBiggerNumber(513));
+        assertEquals(2071,NextBiggerNumberSol.nextBiggerNumber(2017));
+        assertEquals(441,NextBiggerNumberSol.nextBiggerNumber(414));
+        assertEquals(414,NextBiggerNumberSol.nextBiggerNumber(144));
+        assertEquals(19009, NextBiggerNumberSol.nextBiggerNumber(10990));
     }
 }

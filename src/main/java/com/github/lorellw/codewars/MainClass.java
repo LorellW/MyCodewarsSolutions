@@ -1,10 +1,10 @@
 package com.github.lorellw.codewars;
 
-import com.github.lorellw.codewars.morse.MorseCodeDecoder;
+import com.github.lorellw.codewars.math.NextBiggerNumberSol;
+import com.github.lorellw.codewars.math.ProperFractions;
 
 public class MainClass {
     public static void main(String[] args) {
-        long n = 513;
-        System.out.println(NumberUtils.nextBiggerNumber(n));
+        System.out.println(ProperFractions.properFractions(2_305_843_009_213_694_000L));
     }
 }

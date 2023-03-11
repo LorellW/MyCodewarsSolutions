@@ -1,4 +1,4 @@
-package com.github.lorellw.codewars;
+package com.github.lorellw.codewars.math;
 
 import java.math.BigInteger;
 import java.util.Arrays;
@@ -124,13 +124,7 @@ public class NumberUtils {
     }
 
 
-    /*
-        Create a function that takes a positive integer and
-        returns the next bigger number that can be formed by rearranging its digits.
-     */
 
-    public static long nextBiggerNumber(long n) {
-        
-        return n;
-    }
+
+
 }

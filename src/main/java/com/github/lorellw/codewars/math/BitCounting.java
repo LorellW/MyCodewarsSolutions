@@ -1,4 +1,4 @@
-package com.github.lorellw.codewars;
+package com.github.lorellw.codewars.math;
 
 /*
     Write a function that takes an integer as input, and returns the number of bits that are equal
