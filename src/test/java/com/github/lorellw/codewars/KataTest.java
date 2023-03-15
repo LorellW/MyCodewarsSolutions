@@ -29,4 +29,14 @@ public class KataTest {
         long[] b = new long[] {89, 144, 0};
         assertArrayEquals(b, Kata.productFib(5895));
     }
+
+    @Test
+    public void dirReduction() {
+        assertArrayEquals("\"NORTH\", \"SOUTH\", \"SOUTH\", \"EAST\", \"WEST\", \"NORTH\", \"WEST\"",
+                new String[]{"WEST"},
+                Kata.dirReduction(new String[]{"NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"}));
+        assertArrayEquals("\"NORTH\",\"SOUTH\",\"SOUTH\",\"EAST\",\"WEST\",\"NORTH\"",
+                new String[]{},
+                Kata.dirReduction(new String[]{"NORTH","SOUTH","SOUTH","EAST","WEST","NORTH"}));
+    }
 }
