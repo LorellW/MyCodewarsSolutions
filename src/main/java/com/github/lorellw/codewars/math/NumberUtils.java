@@ -86,18 +86,6 @@ public class NumberUtils {
         and returns the sum of all the interval lengths.
         Overlapping intervals should only be counted once.
      */
-    /*
-        1. Sort the intervals based on increasing order of
-            starting time.
-        2. Push the first interval on to a stack.
-        3. For each interval do the following
-           a. If the current interval does not overlap with the stack
-               top, push it.
-           b. If the current interval overlaps with stack top and ending
-               time of current interval is more than that of stack top,
-               update stack top with the ending  time of current interval.
-        4. At the end stack contains the merged intervals.
-     */
 
     public static int sumIntervals(int[][] intervals) {
         if (intervals.length == 0) {
