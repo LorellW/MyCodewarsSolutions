@@ -45,4 +45,11 @@ public class KataTest {
         assertEquals("2000 103 123 4444 99", Kata.orderWeight("103 123 4444 99 2000"));
         assertEquals("11 11 2000 10003 22 123 1234000 44444444 9999", Kata.orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123"));
     }
+
+    @Test
+    public void greedyTest(){
+        assertEquals("Score for [5,1,3,4,1] must be 250:", 250, Kata.greedy(new int[]{5,1,3,4,1}));
+        assertEquals("Score for [1,1,1,3,1] must be 1100:", 1100, Kata.greedy(new int[]{1,1,1,3,1}));
+        assertEquals("Score for [2,4,4,5,4] must be 450:", 450, Kata.greedy(new int[]{2,4,4,5,4}));
+    }
 }
