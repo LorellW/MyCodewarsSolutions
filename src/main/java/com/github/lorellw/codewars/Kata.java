@@ -65,9 +65,9 @@ public class Kata {
         Stack<String> stack = new Stack<>();
         stack.push(arr[0]);
         for (int i = 1; i < arr.length; i++) {
-            if (stack.empty()){
+            if (stack.empty()) {
                 stack.push(arr[i]);
-            }else {
+            } else {
                 String temp = stack.peek();
                 if ((temp.equals("NORTH") && arr[i].equals("SOUTH"))
                         || (temp.equals("SOUTH") && arr[i].equals("NORTH"))
@@ -81,5 +81,33 @@ public class Kata {
             }
         }
         return stack.toArray(new String[]{});
+    }
+
+    public static String orderWeight(String string) {
+        String[] arr = string.split(" ");
+        Arrays.sort(arr,(o1, o2) -> {
+            if (innerSum(o1) < innerSum(o2)){
+                return -1;
+            } else if (innerSum(o1) > innerSum(o2)){
+                return 1;
+            } else {
+                return o1.compareTo(o2);
+            }
+        });
+        StringBuilder result = new StringBuilder("");
+        Arrays.stream(arr).forEach(s -> {
+            result.append(s).append(" ");
+        });
+        return String.valueOf(result).trim();
+    }
+
+    private static long innerSum(String strNumber) {
+        long a = Long.parseLong(strNumber);
+        int sum = 0;
+        while (a > 0) {
+            sum += a % 10;
+            a /= 10;
+        }
+        return sum;
     }
 }
