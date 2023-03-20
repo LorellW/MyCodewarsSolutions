@@ -85,10 +85,10 @@ public class Kata {
 
     public static String orderWeight(String string) {
         String[] arr = string.split(" ");
-        Arrays.sort(arr,(o1, o2) -> {
-            if (innerSum(o1) < innerSum(o2)){
+        Arrays.sort(arr, (o1, o2) -> {
+            if (innerSum(o1) < innerSum(o2)) {
                 return -1;
-            } else if (innerSum(o1) > innerSum(o2)){
+            } else if (innerSum(o1) > innerSum(o2)) {
                 return 1;
             } else {
                 return o1.compareTo(o2);
@@ -109,5 +109,36 @@ public class Kata {
             a /= 10;
         }
         return sum;
+    }
+
+    /*
+         Three 1's => 1000 points
+         Three 6's =>  600 points
+         Three 5's =>  500 points
+         Three 4's =>  400 points
+         Three 3's =>  300 points
+         Three 2's =>  200 points
+         One   1   =>  100 points
+         One   5   =>   50 point
+     */
+
+    public static int greedy(int[] dice) {
+        int result = 0;
+        int[] temp = new int[6];
+        for (int d : dice) {
+            temp[d - 1]++;
+        }
+        for (int i = 0; i < temp.length; i++) {
+            if (temp[i] >= 3) {
+                result += (i + 1) * 100;
+                if (i == 0) {
+                    result *= 10;
+                }
+                temp[i] -= 3;
+            }
+        }
+        result += temp[0] * 100;
+        result += temp[4] * 50;
+        return result;
     }
 }
