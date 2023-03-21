@@ -2,6 +2,7 @@ package com.github.lorellw.codewars;
 
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 public class KataTest {
@@ -51,5 +52,11 @@ public class KataTest {
         assertEquals("Score for [5,1,3,4,1] must be 250:", 250, Kata.greedy(new int[]{5,1,3,4,1}));
         assertEquals("Score for [1,1,1,3,1] must be 1100:", 1100, Kata.greedy(new int[]{1,1,1,3,1}));
         assertEquals("Score for [2,4,4,5,4] must be 450:", 450, Kata.greedy(new int[]{2,4,4,5,4}));
+    }
+    @Test
+    public void zerosTest(){
+        assertThat(Kata.zeros(0), is(0));
+        assertThat(Kata.zeros(6), is(1));
+        assertThat(Kata.zeros(14), is(2));
     }
 }
