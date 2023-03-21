@@ -141,4 +141,16 @@ public class Kata {
         result += temp[4] * 50;
         return result;
     }
+
+    /*
+        Write a program that will calculate the number of trailing zeros in a factorial of a given number.
+     */
+    public static int zeros(int n) {
+        int result = 0;
+        for (int i = 5; n / i >= 1; i *= 5) {
+            result += n / i;
+        }
+        return result;
+    }
+
 }
