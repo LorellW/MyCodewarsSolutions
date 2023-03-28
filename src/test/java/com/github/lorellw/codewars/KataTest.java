@@ -1,6 +1,7 @@
 package com.github.lorellw.codewars;
 
 import org.junit.Test;
+import org.junit.jupiter.api.Order;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -58,5 +59,32 @@ public class KataTest {
         assertThat(Kata.zeros(0), is(0));
         assertThat(Kata.zeros(6), is(1));
         assertThat(Kata.zeros(14), is(2));
+    }
+
+    private static void testing(boolean actual, boolean expected) {
+        assertEquals(expected, actual);
+    }
+
+    @Test @Order(1)
+    public void sampleTests() {
+        testing(Kata.scramble("rkqodlw","world"), true);
+        testing(Kata.scramble("cedewaraaossoqqyt","codewars"),true);
+        testing(Kata.scramble("katas","steak"),false);
+        testing(Kata.scramble("scriptjavx","javascript"),false);
+        testing(Kata.scramble("scriptingjava","javascript"),true);
+        testing(Kata.scramble("scriptsjava","javascripts"),true);
+        testing(Kata.scramble("javscripts","javascript"),false);
+        testing(Kata.scramble("aabbcamaomsccdd","commas"),true);
+        testing(Kata.scramble("commas","commas"),true);
+        testing(Kata.scramble("sammoc","commas"),true);
+    }
+
+    @Test @Order(2)
+    public void largeTest() {
+
+        String s1 = "abcdefghijklmnopqrstuvwxyz".repeat(10_000);
+        String s2 = "zyxcba".repeat(9_000);
+
+        testing(Kata.scramble(s1, s2), true);
     }
 }
