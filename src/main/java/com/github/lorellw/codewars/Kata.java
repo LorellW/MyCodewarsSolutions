@@ -1,6 +1,8 @@
 package com.github.lorellw.codewars;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 public class Kata {
@@ -153,4 +155,44 @@ public class Kata {
         return result;
     }
 
+
+    /*
+        Complete the function scramble(str1, str2) that returns true if a portion of str1 characters
+        can be rearranged to match str2, otherwise returns false.
+
+        Only lower case letters will be used (a-z). No punctuation or digits will be included.
+
+        Performance needs to be considered.
+     */
+
+    public static boolean scramble(String str1, String str2) {
+
+        if (str1.length() < str2.length()) {
+            return false;
+        }
+
+        char[] chars = str1.toCharArray();
+        char[] word = str2.toCharArray();
+
+        Map<Character, Integer> countOfChars = new HashMap<>();
+        for (char aChar : chars) {
+            if (countOfChars.containsKey(aChar)) {
+                countOfChars.replace(aChar, countOfChars.get(aChar) + 1);
+            } else {
+                countOfChars.put(aChar, 1);
+            }
+        }
+
+        for (char temp : word) {
+            if (!countOfChars.containsKey(temp)) {
+                return false;
+            }
+            countOfChars.replace(temp, countOfChars.get(temp) - 1);
+            if (countOfChars.get(temp) < 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
