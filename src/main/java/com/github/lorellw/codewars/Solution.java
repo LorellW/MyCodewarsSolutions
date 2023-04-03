@@ -1,5 +1,7 @@
 package com.github.lorellw.codewars;
 
+import java.util.ArrayList;
+
 public class Solution {
     /*
         Write a function that takes a string of parentheses, and determines if the order of the parentheses is valid.
@@ -48,16 +50,34 @@ public class Solution {
             For example "12,13,15-17"
 
             Complete the solution so that it takes a list of integers in increasing order and returns a correctly formatted string in the range format.
+
+            -6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20
+            -6,-3-1,3-5,7-11,14,15,17-20
      */
-    //TODO write solution
     public static String rangeExtraction(int[] arr) {
         StringBuilder result = new StringBuilder("");
-        StringBuilder temp = new StringBuilder("");
+        Integer begin = null;
         for (int i = 0; i < arr.length - 1; i++) {
-            while (arr[i+1] == arr[i]+1){
-
+            if (arr[i] + 1 == arr[i + 1]) {
+                if (begin == null) {
+                    begin = arr[i];
+                }
+            } else {
+                result.append(add(begin, arr[i]));
+                begin = null;
             }
         }
-        return null;
+        result.append(add(begin, arr[arr.length - 1])).setLength(result.length() - 1);
+        return String.valueOf(result);
+    }
+
+    private static String add(Integer begin, int arrElem) {
+        if (begin == null) {
+            return arrElem + ",";
+        } else if (arrElem - begin == 1) {
+            return begin + "," + arrElem + ",";
+        } else {
+            return begin + "-" + arrElem + ",";
+        }
     }
 }
